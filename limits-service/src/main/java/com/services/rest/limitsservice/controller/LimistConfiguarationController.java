@@ -10,9 +10,12 @@ import com.services.rest.limitsservice.beans.LimitConfiguration;
 @RestController
 public class LimistConfiguarationController {
 	@Autowired
-	private Configuration conf;
+	private Configuration configuration;
+
 	@GetMapping("/limits")
-	public LimitConfiguration retriveLimitsFromConfiguaration() {
-		return new LimitConfiguration(conf.getMaximum(), conf.getMinimum());
+	public LimitConfiguration retrieveLimitsFromConfigurations() {
+		LimitConfiguration limitConfiguration = new LimitConfiguration(configuration.getMaximum(),
+				configuration.getMinimum());
+		return limitConfiguration;
 	}
 }
